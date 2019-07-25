@@ -1,9 +1,91 @@
 <?xml version="1.0" encoding="utf-8"?>
-<fragment xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:map="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/map"
-    android:name="com.google.android.gms.maps.SupportMapFragment"
-    android:layout_width="match_parent"
+<GridLayout
     android:layout_height="match_parent"
-    tools:context=".MapsActivity" />
+    android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:columnCount="2"
+    tools:context=".MapsActivity">
+
+    <!--  Column nCount uses for no. of column   -->
+    <!-- Background tint is used to change the background color for specific block -->
+    <!-- id is used to identify a particular attribute -->
+    <!-- row and column is used to divide the screen in a particular sections -->
+
+    <Button
+        android:backgroundTint="#020D16"
+        android:textColor="#FACD06"
+        android:id="@+id/GoogleMapMarker"
+        android:layout_row="2"
+        android:layout_columnWeight="1"
+        android:layout_rowWeight="1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Marker" />
+
+    <Button
+        android:backgroundTint="#82E41B"
+        android:textColor="#000E01"
+        android:id="@+id/GoogleMapCurrentLocation"
+        android:layout_columnWeight="1"
+        android:layout_rowWeight="1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Current Location" />
+
+    <Button
+        android:backgroundTint="#FFC107"
+        android:textColor="#000D0F"
+
+        android:id="@+id/StreetView"
+
+        android:layout_columnWeight="1"
+        android:layout_rowWeight="1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="STREET VIEW" />
+
+    <Button
+
+        android:backgroundTint="#F44336"
+        android:textColor="#fff"
+        android:id="@+id/a4"
+
+        android:layout_columnWeight="1"
+        android:layout_rowWeight="1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Button" />
+
+    <Button
+
+        android:backgroundTint="#009688"
+        android:textColor="#fff"
+        android:id="@+id/a5"
+
+        android:layout_columnWeight="1"
+        android:layout_rowWeight="1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Button" />
+
+    <Button
+
+        android:backgroundTint="#CDDC39"
+        android:textColor="#fff"
+        android:id="@+id/a6"
+
+        android:layout_columnWeight="1"
+        android:layout_rowWeight="1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Button" />
+
+
+
+
+
+
+
+
+</GridLayout>

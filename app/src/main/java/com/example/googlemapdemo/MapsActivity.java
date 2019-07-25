@@ -1,8 +1,12 @@
 package com.example.googlemapdemo;
 
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -11,37 +15,45 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
-public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
+public class MapsActivity extends AppCompatActivity implements View.OnClickListener {
+    Button a1,a2,a3,a4,a5;
+    public void init(){
+        a1 = findViewById(R.id.GoogleMapMarker); // initialise a1
+        a2 = findViewById(R.id.GoogleMapCurrentLocation); // initialise a2
+        a3 = findViewById(R.id.StreetView); //initialise a3
+        a4 = findViewById(R.id.a4); // initialise a4
+        a5 = findViewById(R.id.a5);  // initialise a5
+        a1.setOnClickListener(this);
+        a2.setOnClickListener(this);
+        a3.setOnClickListener(this);
+        a4.setOnClickListener(this);
+        a5.setOnClickListener(this);
 
-    private GoogleMap mMap;
+    }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps);
-        // Obtain the SupportMapFragment and get notified when the map is ready to be used.
-        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
-                .findFragmentById(R.id.map);
-        mapFragment.getMapAsync(this);
+        init();
     }
 
 
-    /**
-     * Manipulates the map once available.
-     * This callback is triggered when the map is ready to be used.
-     * This is where we can add markers or lines, add listeners or move the camera. In this case,
-     * we just add a marker near Sydney, Australia.
-     * If Google Play services is not installed on the device, the user will be prompted to install
-     * it inside the SupportMapFragment. This method will only be triggered once the user has
-     * installed Google Play services and returned to the app.
-     */
     @Override
-    public void onMapReady(GoogleMap googleMap) {
-        mMap = googleMap;
+    public void onClick(View view) {
+        int id = view.getId(); // v is an object is a object for View Onclick class.
+        Intent intent = null; // intent is used to show messages.
+        switch (id){  // here we use switch for giving id for multiple butttons we used for to distinguish.
+            case R.id.GoogleMapMarker : intent = new Intent(MapsActivity.this, GoogleMapMarkerDemo.class); break;
+            case R.id.GoogleMapCurrentLocation : intent = new Intent(MapsActivity.this, GoogleMapCurrentLocation.class); break;
+            case R.id.StreetView : intent = new Intent(MapsActivity.this, StreetViewDemo.class); break;
 
-        // Add a marker in Sydney and move the camera
-        LatLng sydney = new LatLng(-34, 151);
-        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+        }
+        if (intent!=null)
+            startActivity(intent);  // here we use startACtivity for using other buttons because it is crash instead.
+
     }
+
+
 }
